@@ -1,5 +1,37 @@
-by pts@fazekas.hu at Sun Jun 10 00:10:10 CEST 2001
+pii.rb is by pts@fazekas.hu at Sun Jun 10 00:10:10 CEST 2001
+pii.pl is by pts@fazekas.hu at Sun Jun 10 14:38:08 CEST 2001
+pii.bc is by pts@fazekas.hu at Sun Jun 10 15:43:31 CEST 2001
+pii.py is by pts@fazekas.hu at Sun Jun 10 15:56:25 CEST 2001
+pii.dc is by pts@fazekas.hu at Sun Jun 10 18:50:37 CEST 2001
 
-pii.rb is a Ruby (1.6.2) script in 140 bytes that prints the famous number
+pii.rb is a Ruby (>=1.6.2) script in 140 bytes that prints the famous number
 Pi (the area of the circle with radius 1) in decimal. Prints more and more
-digits until the user interrupts the program.
+digits until the user interrupts the program. This is the `reference
+implementation', all other pii.* implementations are derived from this.
+
+pii.pl is a Perl (>=5.004) script in 288 bytes that prints the famous number
+Pi (the area of the circle with radius 1) in decimal. Prints more and more
+digits until the user interrupts the program. Requires bigint.pl, shipped
+and installed by default with standard Perl 5.004.
+
+pii.bc is a bc (POSIX bc, GNU `bc -s') script in 242 bytes that prints the
+famous number Pi (the area of the circle with radius 1) in decimal. Prints
+more and more digits until the user interrupts the program. Note that the
+`bc logo' is also printed and some bc implementations (such as GNU bc)
+insert backslash-newlines occasionally into the output.
+
+pii.py is a Python (>=1.5.1) script in 223 bytes that prints the famous number
+Pi (the area of the circle with radius 1) in decimal. Prints more and more
+digits until the user interrupts the program. Uses `import mpz', so the
+_optional_ Python `mpzmodule.so' must be installed.
+
+pii.dc is a dc (POSIX dc, GNU dc) script in 148 bytes that prints the
+famous number Pi (the area of the circle with radius 1) in decimal. Prints
+more and more digits until the user interrupts the program. Note that some dc
+implementations (such as GNU dc) insert backslash-newlines occasionally into
+the output. Run as `dc pii.dc' or `dc <pii.dc'. It doesn't work with dc.sed
+shipped with GNU sed, because that version of dc doesn't support the `n'
+operator. It would be easy to implement pii.dc in less than 140 bytes (that
+is, making it 9 bytes shorter than it is now), but then we couldn't avoid
+digits ([0-9]) in the code, so it would be less obfuscated :-).
+ 
