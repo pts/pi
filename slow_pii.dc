@@ -1,6 +1,26 @@
 0sa4sb40sf24sg9sp7sq
-[3.]pss
-[ltpsslalb%10*lflg%10*sfsalalb/stltlflg/=v]sv
-[lflglpla*lqlf*+lplb*lqlg*+lalb/stsgsfsbsaltlflg/=vlqdlp+sp2+sqdx]dx
+[3.]n
 
-q
+[
+ ltnlalb%10*lflg%10*sfsa
+ lalb/st
+ ltlflg/=v
+]sv
+[
+ lflglpla*lqlf*+lplb*lqlg*+lalb/stsgsfsbsa
+ ltlflg/=v
+ lqdlp+sp2+sq
+ lwx
+]sw
+lwx
+
+#import sys
+#import mpz
+#m=mpz.mpz
+#w=sys.stdout.write
+#a,b,f,g,p,q=0,4,m(40),24,9,m(7)
+#w('3.')
+#while 1:
+# a,b,f,g,t=f,g,p*a+q*f,p*b+q*g,a/b
+# while f/g==t:w(repr(t)[-2]);sys.stdout.flush();a,f=10*(a%b),10*(f%g);t=a/b
+# p,q=p+q,q+2
