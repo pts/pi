@@ -1,0 +1,5 @@
+by pts@fazekas.hu at Sun Jun 10 00:10:10 CEST 2001
+
+pii.rb is a Ruby (1.6.2) script in 140 bytes that prints the famous number
+Pi (the area of the circle with radius 1) in decimal. Prints more and more
+digits until the user interrupts the program.
