@@ -7,7 +7,7 @@
  ltlflg/=v
 ]sv
 [
- lflglpla*lqlf*+lplb*lqlg*+lalb/stsgsfsbsa
+ lflglpla*lqlf*+lplb*lqlg*+sgsfsbsalalb/st
  ltlflg/=v
  lqdlp+sp2+sq
  lwx
@@ -21,6 +21,7 @@ lwx
 #a,b,f,g,p,q=0,4,m(40),24,9,m(7)
 #w('3.')
 #while 1:
-# a,b,f,g,t=f,g,p*a+q*f,p*b+q*g,a/b
+# a,b,f,g=f,g,p*a+q*f,p*b+q*g
+# t=a/b  #BUG fixed at Sun May 16 09:17:59 CEST 2004 !
 # while f/g==t:w(repr(t)[-2]);sys.stdout.flush();a,f=10*(a%b),10*(f%g);t=a/b
 # p,q=p+q,q+2
