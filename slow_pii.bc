@@ -1,0 +1,13 @@
+# this is not POSIX because if the `else' clause
+a=0;b=4;f=40;g=24;p=9;q=5;"3."
+while(q+=2){
+h=f;i=g;
+f=p*a+q*f;g=p*b+q*g
+a=h;b=i;
+while(f/g==t=a/b){
+if(t<5){if(t<3){if(t<2){if(t<1)"0"else"1"}else"2"}else if(t<4)"3"else"4"}else
+if(t<8){if(t<7){if(t<6)"5"else"6"}else"7"}else if(t<9)"8"else"9"
+a=10*(a%b);f=10*(f%g)
+}
+p+=q
+}
