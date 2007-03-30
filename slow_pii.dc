@@ -1,14 +1,2 @@
 [/dlflg/=u]dZ[lflglblp*lqlg*+lpla*lqlf*+sfsgsbdsalblex]dscZ[lb%O]sdzzKsa
 [nlaldx*lflg%O*sfdsalblex]dsuZ[.]zsqsssgsbnsfspselsn[lcxsslqdlp+spz+sqdx]dx
-
-# Now it works fine, matches pi.dig.
-# Two bugs were corrected at Sun May 16 11:50:22 CEST 2004
-# -- code of length 24 had left `a' and `b' in wrong order on the stack
-# -- code of length 40 had left too early values of `a' and `b' on the stack
-
-#[/dlflg/=u]dZ[lflglblp*lqlg*+lpla*lqlf*+sfsgsbdsalblex]dscZ[r%O*]sdzzKsa
-#[nlbdlaldxlglfldxsfdsalex]dsuZ[.]zsqsssgsbnsfspselsn[lcxsslqdlp+spz+sqdx]dx
-#still buggy!
-#at Sun May 16 09:09:27 CEST 2004
-#good: 3.141592653589793238462643383279502884197169399375105820...
-#this: 3.141592653589793238462643383279502884197169399375091175...
