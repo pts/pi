@@ -1,8 +1,18 @@
-(s=$>).sync=s<<'3.'
-a,b,f,g,p,q=0,4,40,24,9,7
-while a
-a,b,f,g=f,g,p*a+q*f,p*b+q*g
-s,a,f=s<<$_,10*(a%b),10*(f%g)while f/g==$_=a/b
-p+=q
-q+=2
+#! /usr/bin/ruby1.8
+
+k, a, b, a1, b1 = 2, 4, 1, 12, 4
+
+loop do
+  # Next approximation
+  p, q, k = k*k, 2*k+1, k+1
+  a, b, a1, b1 = a1, b1, p*a+q*a1, p*b+q*b1
+  # Print common digits
+  d = a / b
+  d1 = a1 / b1
+  while d == d1
+    print d
+    $stdout.flush
+    a, a1 = 10*(a%b), 10*(a1%b1)
+    d, d1 = a/b, a1/b1
+  end
 end
