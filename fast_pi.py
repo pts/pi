@@ -1,29 +1,37 @@
-#! /usr/bin/python2.4
+#! /usr/bin/python
 
 import sys
-import time
 
 def arcctg(x, u):
   sum = xpower = u // x
+  xx = x * x
   n = 3
-  sign = -1
-  term = 1
-  while term:
-    xpower = xpower // (x*x)
+  while True:
+    xpower //= xx
     term = xpower // n
-    sum += sign * term
-    sign *= -1
+    if not term:
+      return sum
+    sum -= term
     n += 2
-  return sum
+    xpower //= xx
+    term = xpower // n
+    if not term:
+      return sum
+    sum += term
+    n += 2
+
+def maxerr(digits):
+  return (286135312 * digits + 31739381 + 9999999) // 10000000
 
 def pi(digits):
-  u = 10**(digits + 10)
-  pi = 4 * (4*arcctg(5, u) - arcctg(239, u))
-  return pi // 10**10
+  """Return a string of at most ``digits'' characters, prefix of pi."""
+  if digits < 3:
+    return '3'
+  u = 10 ** digits
+  ys = str(4 * (4 * arcctg(5, u) - arcctg(239, u)))
+  c = len(str(maxerr(digits)))
+  while ys[-c] == '0':
+    c += 1
+  return '3.' + ys[1 : -c]
 
-print pi(100000)
-
-#for i in range(1000):
-#  sys.stdout.write(str(pi(i) % 10))
-#  sys.stdout.flush()
-#  time.sleep(0.01)
+print pi(5)
