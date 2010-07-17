@@ -20,6 +20,8 @@ def acot(x, u):
     sum += term
     n += 2
 
+assert acot(5, 10000000) == 1973956
+
 def maxerr(digits):
   return (286135312 * digits + 31739381 + 9999999) // 10000000
 
@@ -33,6 +35,13 @@ def numdigits(v):
       pa = pb
       pb *= pb
       b *= 2
+    pb = pa
+    b = a
+    while v > pb:
+      a = b
+      pa = pb
+      pb *= 10
+      b += 1
     v //= pa
     n += a
   return n
