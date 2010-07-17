@@ -71,3 +71,23 @@ assert pi(35) == 3141592653589793238462643383279
 assert pi(36) == 314159265358979323846264338327950
 assert pi(37) == 3141592653589793238462643383279502
 assert pi(77) == 31415926535897932384626433832795028841971693993751058209749445923078164062
+
+def suffixof(a, b):
+  """Assuming b is a (longer) prefix of a (> 0), then returns the rest of a."""
+  return a % (10 ** (numdigits(a) - numdigits(b)))
+
+assert suffixof(12345, 12) == 345
+assert suffixof(12045, 12) == 45
+assert suffixof(56, 5) == 6
+assert suffixof(567, 5) == 67
+
+if __name__ == '__main__':
+  sys.stdout.write('3.')
+  b = 3
+  digits = 8
+  while True:
+    a = pi(digits)
+    sys.stdout.write(str(suffixof(a, b)))
+    sys.stdout.flush()
+    b = a
+    digits *= 2
