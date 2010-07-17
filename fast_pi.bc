@@ -1,0 +1,98 @@
+#! /usr/bin/bc -q
+# by pts@fazekas.hu at Sat Jul 17 17:38:25 CEST 2010
+
+/** Return an approximation and lower bound for acot(x) * 10 ^ u. */
+define acot(x, u) {
+  auto sum, xpower, xx, n, term
+  sum = xpower = u / x
+  xx = x * x
+  n = 3
+  for (;;) {
+    xpower /= xx
+    term = xpower / n
+    if (term == 0)
+      return sum
+    sum -= term
+    n += 2
+    xpower /= xx
+    term = xpower / n
+    if (term == 0)
+      return sum
+    sum += term
+    n += 2
+  }
+}
+
+/* Return the number of digits in the decimal representation of the
+ * nonnegative integer v
+ */
+define numdigits(v) {
+  auto n, a, b, pa, pb
+  n = 1
+  while (v > 9) {
+    a = b = 1
+    pa = pb = 10
+    while (v > pb) {
+      a = b
+      pa = pb
+      pb *= pb
+      b *= 2
+    }
+    pb = pa
+    b = a
+    while (v > pb) {
+      a = b
+      pa = pb
+      pb *= 10
+      b += 1
+    }
+    v /= pa
+    n += a
+  }
+  return n
+}
+
+/* Return an integer upper bound for the >= 0 error value pi * 10 ^ u - f(u),
+ * where u is 10 ^ nd, f(u) is the integer 4 * (4 * acot(5, u) - acot(239, u)).
+ *
+ * The magic constants in the maxerr implementation were derived from analyzing
+ * the acot implementation, taking into account the rounding (truncation) done
+ * in each division.
+ */
+define maxerr(nd) {
+  return (286135312 * nd + 41739380) / 10000000
+}
+
+/* Return a string of at most nd characters, prefix of pi,
+ * assuming nd >= 4.
+ */
+define pi(nd) {
+  auto u, y
+  u = 10 ^ nd
+  y = 4 * (4 * acot(5, u) - acot(239, u))
+  y /= 10 ^ (numdigits(maxerr(nd)) - 1)
+  while (y % 10 == 0) {
+    y /= 10
+  }
+  return y / 10
+}
+
+/* Print pi with increasing precision infinitely (until aborted). */
+define pinfinite() {
+  auto b, nb, nd, a, na
+  print "3."
+  b = 3
+  nb = 1
+  nd = 8
+  for (;;) {
+    a = pi(nd)
+    na = numdigits(a)
+    /* Print digits not printed yet in previous iterations. */
+    print a % (10 ^ (na - nb))
+    b = a
+    nb = na
+    nd *= 3
+  }
+}
+
+pinfinite()  /* Infinite loop. */
