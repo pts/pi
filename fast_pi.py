@@ -2,7 +2,7 @@
 
 import sys
 
-def arcctg(x, u):
+def acot(x, u):
   sum = xpower = u // x
   xx = x * x
   n = 3
@@ -25,11 +25,9 @@ def maxerr(digits):
 
 def numdigits(v):
   n = 1
-  while v >= 10:
-    a = 1
-    pa = 10
-    b = 1
-    pb = 10
+  while v > 9:
+    a = b = 1
+    pa = pb = 10
     while v > pb:
       a = b
       pa = pb
@@ -62,13 +60,14 @@ def pi(digits):
   if digits < 3:
     return '3'
   u = 10 ** digits
-  ys = str(4 * (4 * arcctg(5, u) - arcctg(239, u)))
-  c = numdigits(maxerr(digits))
-  while ys[-c] == '0':
-    c += 1
-  return '3.' + ys[1 : -c]
+  y = 4 * (4 * acot(5, u) - acot(239, u))
+  y //= 10 ** (numdigits(maxerr(digits)) - 1)
+  while y % 10 == 0:
+    y //= 10
+  return y // 10
 
-assert pi(35) == '3.141592653589793238462643383279'
-assert pi(36) == '3.14159265358979323846264338327950'
-assert pi(37) == '3.141592653589793238462643383279502'
-assert pi(77) == '3.1415926535897932384626433832795028841971693993751058209749445923078164062'
+assert pi(3) == 31
+assert pi(35) == 3141592653589793238462643383279
+assert pi(36) == 314159265358979323846264338327950
+assert pi(37) == 3141592653589793238462643383279502
+assert pi(77) == 31415926535897932384626433832795028841971693993751058209749445923078164062
