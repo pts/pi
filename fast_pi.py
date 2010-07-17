@@ -63,9 +63,12 @@ def pi(digits):
     return '3'
   u = 10 ** digits
   ys = str(4 * (4 * arcctg(5, u) - arcctg(239, u)))
-  c = numdigits(maxerr(digits)))
+  c = numdigits(maxerr(digits))
   while ys[-c] == '0':
     c += 1
   return '3.' + ys[1 : -c]
 
-print pi(5)
+assert pi(35) == '3.141592653589793238462643383279'
+assert pi(36) == '3.14159265358979323846264338327950'
+assert pi(37) == '3.141592653589793238462643383279502'
+assert pi(77) == '3.1415926535897932384626433832795028841971693993751058209749445923078164062'
