@@ -51,37 +51,11 @@ define acot(x, u) {
   }
 }
 
-define numdigits(v) {
-  auto n, a, b, e, f
-  n = 1
-  while (v > 9) {
-    a = b = 1
-    e = f = 10
-    while (v > f) {
-      a = b
-      e = f
-      f *= f
-      b *= 2
-    }
-    f = e
-    b = a
-    while (v > f) {
-      a = b
-      e = f
-      f *= 10
-      b += 1
-    }
-    v /= e
-    n += a
-  }
-  return n
-}
-
 define pi(d) {
   auto z, y
   z = 10 ^ d
   y = 4 * (4 * acot(5, z) - acot(239, z))
-  y /= 10 ^ (numdigits((286135312 * d + 41739380) / 10000000) - 1)
+  y /= 10 ^ (length((286135312 * d + 41739380) / 10000000) - 1)
   while (y % 10 == 0) {
     y /= 10
   }
@@ -96,7 +70,7 @@ define pinfinite() {
   k = 8
   for (;;) {
     g = pi(k)
-    i = numdigits(g)
+    i = length(g)
     print g % (10 ^ (i - j))
     h = g
     j = i
@@ -105,7 +79,6 @@ define pinfinite() {
 }
 
 /* print acot(5, 100000000), "\n" */
-print pi(32), "\n";
-quit
+/* print pi(32), "\n" */
 
-#pinfinite()
+pinfinite()
