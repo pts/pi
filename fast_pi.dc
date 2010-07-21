@@ -41,8 +41,8 @@
 # M
 # N
 # O
-# P
-# Q
+# P pi
+# Q pi while
 # R
 # S acot return s
 # T
@@ -79,7 +79,19 @@
 ]sD
 
 # acot(5, 100000000)
-5sx 100000000su lCx p
+# 5sx 100000000su lCx p
 
+[ly10/dsy10%0=Q]sQ
+
+[ # define pi(d) {
+  # auto z, y
+  10ld^sz
+  5sxlzsulCx4*
+  239sxlzsulCx-4*
+  10ld286135312*41739380+10000000/Z1-^/dsy10%0=Q
+  ly10/
+]sP
+
+32sdlPxp
 
 # !! numdigits --> Z
