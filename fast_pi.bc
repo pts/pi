@@ -8,11 +8,11 @@ c
 d pi.nd
 e numdigits.pa
 f numdigits.pb
-g
-h
-i
-j
-k
+g pinfinite.a
+h pinfinite.b
+i pinfinite.na
+j pinfinite.nb
+k pinfinite.nd
 l
 m
 n
@@ -89,20 +89,23 @@ define pi(d) {
 }
 
 define pinfinite() {
-  auto b, nb, nd, a, na
+  auto h, j, k, g, i
   print "3."
-  b = 3
-  nb = 1
-  nd = 8
+  h = 3
+  j = 1
+  k = 8
   for (;;) {
-    a = pi(nd)
-    na = numdigits(a)
-    /* Print digits not printed yet in previous iterations. */
-    print a % (10 ^ (na - nb))
-    b = a
-    nb = na
-    nd *= 3
+    g = pi(k)
+    i = numdigits(g)
+    print g % (10 ^ (i - j))
+    h = g
+    j = i
+    k *= 3
   }
 }
 
-pinfinite()  /* Infinite loop. */
+/* print acot(5, 100000000), "\n" */
+print pi(32), "\n";
+quit
+
+#pinfinite()
