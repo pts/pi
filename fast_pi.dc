@@ -1,0 +1,85 @@
+
+# a numdigits.a
+# b numdigits.b
+# c
+# d pi.nd
+# e numdigits.pa
+# f numdigits.pb
+# g pinfinite.a
+# h pinfinite.b
+# i pinfinite.na
+# j pinfinite.nb
+# k pinfinite.nd
+# l
+# m
+# n
+# o
+# p acot.xpower
+# q
+# r
+# s acot.sum
+# t acot.term
+# u acot.u
+# v numdigits.v
+# w acot.xx
+# x acot.x
+# y pi.y
+# z pi.u
+
+# A
+# B
+# C acot
+# D acot loop
+# E
+# F
+# G
+# H
+# I
+# J
+# K
+# L
+# M
+# N
+# O
+# P
+# Q
+# R
+# S acot return s
+# T
+# U
+# V
+# W
+# X
+# Y
+# Z
+
+
+[ # define acot(x, u) {
+  # auto s, p, w, n, t
+  lulx/dspss
+  lxd*sw
+  3sn
+  lDx
+]sC
+
+[ls2Q]sS
+
+[ # acot loop
+  lplw/dsp
+  ln/dst
+  0=S
+  lslt-ss
+  ln2+sn
+  lplw/dsp
+  ln/dst
+  0=S
+  lslt+ss
+  ln2+sn
+  lDx
+]sD
+
+# acot(5, 100000000)
+5sx 100000000su lCx p
+
+
+# !! numdigits --> Z
