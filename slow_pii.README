@@ -25,13 +25,14 @@ Pi (the area of the circle with radius 1) in decimal. Prints more and more
 digits until the user interrupts the program. Uses `import mpz', so the
 _optional_ Python `mpzmodule.so' must be installed.
 
-pii.dc is a dc (POSIX dc, GNU dc) script in 148 bytes that prints the
-famous number Pi (the area of the circle with radius 1) in decimal. Prints
-more and more digits until the user interrupts the program. Note that some dc
+pii.dc is a dc (POSIX dc, GNU dc) script in 148 bytes that prints the famous
+number Pi (the area of the circle with radius 1) in decimal. Prints more and
+more digits until the user interrupts the program. Note that some dc
 implementations (such as GNU dc) insert backslash-newlines occasionally into
 the output. Run as `dc pii.dc' or `dc <pii.dc'. It doesn't work with dc.sed
 shipped with GNU sed, because that version of dc doesn't support the `n'
-operator. It would be easy to implement pii.dc in less than 140 bytes (that
-is, making it 9 bytes shorter than it is now), but then we couldn't avoid
-digits ([0-9]) in the code, so it would be less obfuscated :-).
+operator. (Also dc.sed produces some invalid, negative digits.) It would be
+easy to implement pii.dc in less than 140 bytes (that is, making it 9 bytes
+shorter than it is now), but then we couldn't avoid digits ([0-9]) in the
+code, so it would be less obfuscated :-).
  
